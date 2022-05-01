@@ -36,3 +36,19 @@ console.log(person.name);
 // function add(a: string, b: number): number {
 //     return a + b;
 // }
+// 20. どんな型にもなるany型について知る
+// any型は、型を指定せずに、どんな型でも代入できる。
+// any型はなるべく使わないようにする。
+var anything = true;
+anything = 'hello';
+anything = ['hello', 33, true];
+anything = {};
+anything.myName = 'John';
+var banana = 'banana';
+banana = anything;
+// 21. Union型を使って複数の型 を使う方法
+var unionType = 10;
+// unionType.toUpperCase();
+unionType = 'hello';
+unionType.toUpperCase();
+var unionTypes = [21, 'hello'];

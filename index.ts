@@ -32,11 +32,13 @@ enum CoffeeSize {
     GRANDE= 'GRANDE',
     VENTI= 'VENTI'
 }
-
 const coffee = {
     hot:true,
     size:CoffeeSize.TALL
 }
+
+
+
 
 console.log(person.name);
 
@@ -46,3 +48,25 @@ console.log(person.name);
 // function add(a: string, b: number): number {
 //     return a + b;
 // }
+
+// 20. どんな型にもなるany型について知る
+// any型は、型を指定せずに、どんな型でも代入できる。
+// any型はなるべく使わないようにする。
+let anything: any = true;
+anything = 'hello';
+anything = ['hello', 33,true];
+anything = {};
+anything.myName = 'John';
+let banana = 'banana';
+banana = anything;
+
+// 21. Union型を使って複数の型 を使う方法
+let unionType: number | String = 10;
+// unionType.toUpperCase();
+unionType = 'hello';
+unionType.toUpperCase();
+
+let unionTypes: (number | string)[] = [21, 'hello'];
+
+// 22. Literal型を使って特定の値のみを取り扱う方法
+const apple: 'apple' = 'apple';
