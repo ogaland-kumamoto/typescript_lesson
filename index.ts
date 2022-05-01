@@ -70,3 +70,24 @@ let unionTypes: (number | string)[] = [21, 'hello'];
 
 // 22. Literal型を使って特定の値のみを取り扱う方法
 const apple: 'apple' = 'apple';
+
+let clothSize: 'small' | 'medium' | 'large' = 'large';
+
+const cloth: {
+    color: string;
+    size1: 'small' | 'medium' | 'large';
+    size2: ClothSize;   //typeエイリアス
+} = {
+    color: 'red',
+    size1: 'small',
+    size2: 'medium'
+}
+
+// 23. typeエイリアスを使って複雑な型を変数のように扱う
+type ClothSize = 'small' | 'medium' | 'large';
+
+// 24. 関数に型を適応させる方法
+function add(a: number, b: number): number {
+    return a + b;
+}
+add(2,4);
