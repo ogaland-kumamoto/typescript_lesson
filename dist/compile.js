@@ -13,5 +13,3 @@ implicitAny = 'hello';
 // let nullabeleMessage: string = null;
 // let undefinedMessage: string = undefined;
 // let onlyNull: null = undefined;
-
-echo.call(null, 'hi', 33);
