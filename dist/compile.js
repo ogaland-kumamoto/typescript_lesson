@@ -1,4 +1,3 @@
-"use strict";
 // 34. tsc —initでtsconfig.jsonを作り、全てのファイルを一気にコンパイルする方法
 // console.log('compile');
 // 37. libを指定して、TypeScriptが用意している型の定義を追加する
