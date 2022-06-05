@@ -5,10 +5,9 @@
 let hello = 'hello';
 console.log(hello.toUpperCase());
 
-
 // 42. noImplicitAnyやstrictNullChecksなどのstrictの設定はこう使う
 function echo(message: string) {
-    return message;
+  return message;
 }
 let implicitAny;
 implicitAny = 'hello';
@@ -17,10 +16,10 @@ implicitAny = 'hello';
 // let onlyNull: null = undefined;
 
 // 77. インデックスシグネチャを使用して柔軟なオブジェクトを作る方法
-interface Designer{
-    name: string;
+interface Designer {
+  name: string;
 }
 
-const designer:Designer = {
-    name : 'taro'
-}
+const designer: Designer = {
+  name: 'taro',
+};
