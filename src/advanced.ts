@@ -58,7 +58,7 @@ interface TmpFunc{
   (x:number):number;
 }
 const upperHello: TmpFunc = function (x: string| number) {return 0};
-86. 関数型のユニオン型はパラメータがインターセクション型、戻り値はユニオン型になる
+// 86. 関数型のユニオン型はパラメータがインターセクション型、戻り値はユニオン型になる
 interface FuncA{
   (a:number , b:string):number;
   (a:string , b:number):number;
@@ -147,7 +147,7 @@ interface DownloadedData{
 const downloadedData: DownloadedData = {
   id: 1,
 };
-console.log(downloadedData.user?.name?.first);
+// console.log(downloadedData.user?.name?.first);
 
 // 80. Nullish Coalescingはこう使う！
 // undefined nullだったら返す値
@@ -188,7 +188,7 @@ target = source;
 
 // 87. レストパラメーターに配列やタプルを指定する方法
 // 88. 配列とタプルにreadonly修飾子をつける方法
-function advancedFn(...args: readonly [readonly number , string , boolean?,...number[]]){}
+function advancedFn(...args: readonly [ number , string , boolean?,...number[]]){}
 advancedFn(0, 'hello',true,3,3,3,3);
 
 // 89. constアサーションはこう使う
