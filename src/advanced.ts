@@ -24,13 +24,18 @@ type StringNumber = string | number;
 type Mix = NumberBoolean & StringNumber;
 
 // 73. 条件文を使って型を絞り込む、３つのType guard
-function toUpperCase(x: string | number) {
+// 78. 関数のオーバーロードを使って、戻り値の型を正しくTypeScriptに伝える方法
+function toUpperCase(x: string): string;
+function toUpperCase(x: number): number;
+function toUpperCase(x: string | number): string | number {
   if (typeof x === 'string') {
     x.toUpperCase();
     return x.toUpperCase();
   } else {
     return '';
   }
+  const upperHello = toUpperCase('hello');
+
 
   type NomadWorker = Engineer | Blogger;
   function describeNomadWorkerProfile(nomadWorker: NomadWorker) {
@@ -85,3 +90,49 @@ input.value = 'hello';
 // 76. !(Non-null assertion operator)を使って、nullじゃないと言い切る方法 (上下は同じ)
 const input2 = document.getElementById('input') as HTMLInputElement;
 const input3 = document.getElementById('input')!;
+
+// 77. インデックスシグネチャを使用して柔軟なオブジェクトを作る方法
+interface Designer {
+  name: string;
+  [index: string]:string;
+}
+const designer2: Designer = {
+  name: 'Quill',
+  role: 'frontend'
+}
+console.log(designer2.name)
+
+// 79. Optional Chainingはこう使う！
+interface DownloadedData{
+  id: number;
+  user?:{
+    name?: string;
+      first: string;
+      last: string;
+  }
+}
+
+const downloadedData: DownloadedData = {
+  id: 1,
+};
+console.log(downloadedData.user?.name?.first);
+
+// 80. Nullish Coalescingはこう使う！
+// undefined nullだったら返す値
+const userData = downloadedData.user ?? 'no-user';
+
+// 81. LookUp型を使ってオブジェクトのメンバーの型を取得する方法
+type id = DownloadedData["id"];
+type name = DownloadedData["user"]["name"];
+type id2 = DownloadedData["id" | "user"];
+
+
+// 82. 型の互換性の仕様書はこうなっている！
+enum Color {
+  RED,
+  BLUE,
+}
+let target: string = 'hello';
+let source: 'hello' = 'hello';
+// 左側の変数の型が正しい場合にのみ怒られない
+target = source;
