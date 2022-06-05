@@ -1,8 +1,8 @@
 // 72. AかつBのように、&を用いてインターセクション型を定義する方法
 
 type Engineer = {
-    name: string;
-    role : string
+    name : string;
+    role : string;
 }
 
 type Blogger= {
@@ -14,11 +14,12 @@ type EngineerBlogger = Engineer & Blogger;
 
 const quill: EngineerBlogger = {
     name: 'Quill',
-    role: 'frontend',
+    role:'frontend',
+
     followers: 1000
 }
 
-type NumberBoolean = number | boolean;
+type NumberBoolean = number | boolean
 type StringNumber = string | number;
 type Mix = NumberBoolean & StringNumber;
 
@@ -26,7 +27,7 @@ type Mix = NumberBoolean & StringNumber;
 function toUpperCase(x:string | number ){
     if (typeof x === 'string'){
         x.toUpperCase();
-        return x.toUpperCase();
+        return x.toUpperCase()
     }else{
         return '';
     }
@@ -53,7 +54,7 @@ class Dog {
     }
 }
 class Bird {
-    kind : 'bird' = 'bird';
+    kind: 'bird' = 'bird';
     speak() {
         console.log('tweet');
     }
@@ -84,4 +85,4 @@ input.value = 'hello';
 
 // 76. !(Non-null assertion operator)を使って、nullじゃないと言い切る方法 (上下は同じ)
 const input2 = document.getElementById('input') as HTMLInputElement;
-const input3 = document.getElementById('input')!;
+const input3 = document.getElementById('input')!

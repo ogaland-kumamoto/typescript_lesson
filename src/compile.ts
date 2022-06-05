@@ -15,3 +15,13 @@ implicitAny = 'hello';
 // let nullabeleMessage: string = null;
 // let undefinedMessage: string = undefined;
 // let onlyNull: null = undefined;
+
+// 77. インデックスシグネチャを使用して柔軟なオブジェクトを作る方法
+interface Designer{
+    name: string;
+}
+
+const designer:Designer = {
+    
+    name: 'taro'
+}
