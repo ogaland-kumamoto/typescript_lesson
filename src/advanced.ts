@@ -51,6 +51,38 @@ function toUpperCase(x: string | number): string | number {
     }
   }
 }
+
+// 84. 関数型のオーバーロードはinterfaceで定義する必要がある
+interface TmpFunc{
+  (x:string):number;
+  (x:number):number;
+}
+const upperHello: TmpFunc = function (x: string| number) {return 0};
+86. 関数型のユニオン型はパラメータがインターセクション型、戻り値はユニオン型になる
+interface FuncA{
+  (a:number , b:string):number;
+  (a:string , b:number):number;
+}
+interface FuncB{
+  (a:string):number;
+}
+let intersectionFunc:FuncA&FuncB;
+intersectionFunc = function (a: number | string, b?: string | number | undefined) {
+  return 0;
+
+}
+// 86. 関数型のユニオン型はパラメータがインターセクション型、戻り値はユニオン型になる
+interface FuncC{
+  (a:number) :number;
+}
+interface FuncD{
+  (a:string):string;
+}
+let unionFunc:FuncD|FuncC;
+unionFunc = function (a: string | number) {
+  return 0;
+}
+
 class Dog {
   kind: 'dog' = 'dog';
   speak() {
@@ -128,6 +160,21 @@ type id2 = DownloadedData["id" | "user"];
 
 
 // 82. 型の互換性の仕様書はこうなっている！
+class AdvancedPerson{
+  name: string = 'Quill';
+  age: number = 30;
+  // private age2: number = 30;
+}
+class AdvancedCar {
+  name: string = 'Ford';
+  age: number = 10;
+}
+
+let target3 = new AdvancedPerson();
+let source3 = new AdvancedCar();
+target3 = source3;
+
+
 enum Color {
   RED,
   BLUE,
@@ -136,3 +183,22 @@ let target: string = 'hello';
 let source: 'hello' = 'hello';
 // 左側の変数の型が正しい場合にのみ怒られない
 target = source;
+
+// 83. 「TypeScriptの型安全性」と「JavaScriptの柔軟性」
+
+// 87. レストパラメーターに配列やタプルを指定する方法
+// 88. 配列とタプルにreadonly修飾子をつける方法
+function advancedFn(...args: readonly [readonly number , string , boolean?,...number[]]){}
+advancedFn(0, 'hello',true,3,3,3,3);
+
+// 89. constアサーションはこう使う
+let milk = 'milk' as const;
+let drink = milk;
+const array = [10,20] as const;
+const perter = {
+  name: 'Quill',
+  age: 30,
+} as const;
+
+// 90. 型の中でtypeofを使うと、こんな便利なことができる
+type PerType = typeof perter;
