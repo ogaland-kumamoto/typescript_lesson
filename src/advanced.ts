@@ -13,8 +13,8 @@ type EngineerBlogger = Engineer & Blogger;
 // interface EngineerBlogger extends Engineer, Blogger{}   //このやり方もできる
 
 const quill: EngineerBlogger = {
-    name: 'Quill',
-    role:'frontend',
+    name : 'Quill',
+    role : 'frontend',
 
     followers: 1000
 }
@@ -54,7 +54,7 @@ class Dog {
     }
 }
 class Bird {
-    kind: 'bird' = 'bird';
+    kind : 'bird' = 'bird';
     speak() {
         console.log('tweet');
     }

@@ -22,6 +22,5 @@ interface Designer{
 }
 
 const designer:Designer = {
-    
-    name: 'taro'
+    name : 'taro'
 }
