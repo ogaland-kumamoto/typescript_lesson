@@ -137,7 +137,7 @@ console.log(designer2.name)
 // 79. Optional Chainingはこう使う！
 interface DownloadedData{
   id: number;
-  user?:{
+  user:{
     name?: string;
       first: string;
       last: string;
@@ -146,6 +146,11 @@ interface DownloadedData{
 
 const downloadedData: DownloadedData = {
   id: 1,
+  user: {
+    name: '',
+    first: '',
+    last: ''
+  }
 };
 // console.log(downloadedData.user?.name?.first);
 
