@@ -1,3 +1,11 @@
+
+// 101. 型のif文であるConditional Typesはこう使う
+type ConditionalTypes = string extends 'tomato' ? number : boolean
+type ConditionalTypesInfer = {tomato: 'tomato'} extends {tomato:infer R} ? R : boolean;
+type DistributiveConditionalTypes<T> = ('tomato' | 'pumpkin') extends 'tomato' ? number : boolean;
+let tmp4: DistributiveConditionalTypes<'tomato' | 'pumpkin'>;
+let tmp5: NonNullable<string | null>;
+
 // 93. こうしてジェネリクスを使って、型を引数として受け取る
 // 参照先の使われ方を型推論して、パラメーターTとUの型を勝手に推論している。やべえ。
 // function copy<T>(value: T):T  {
@@ -86,9 +94,3 @@ type MappedTypes = {
     -readonly [P in keyof 'tomato' | 'onion' ]-?: string;
 }
 
-// 101. 型のif文であるConditional Typesはこう使う
-type ConditionalTypes = string extends 'tomato' ? number : boolean
-type ConditionalTypesInfer = {tomato: 'tomato'} extends {tomato:infer R} ? R : boolean;
-type DistributiveConditionalTypes<T> = ('tomato' | 'pumpkin') extends 'tomato' ? number : boolean;
-let tmp4: DistributiveConditionalTypes<'tomato' | 'pumpkin'>;
-let tmp5: NonNullable<string | null>;
