@@ -87,4 +87,8 @@ type MappedTypes = {
 }
 
 // 101. 型のif文であるConditional Typesはこう使う
-type ConditionalTypes = 'tomato' extends string ? 'tomato' : boolean
+type ConditionalTypes = string extends 'tomato' ? number : boolean
+type ConditionalTypesInfer = {tomato: 'tomato'} extends {tomato:infer R} ? R : boolean;
+type DistributiveConditionalTypes<T> = ('tomato' | 'pumpkin') extends 'tomato' ? number : boolean;
+let tmp4: DistributiveConditionalTypes<'tomato' | 'pumpkin'>;
+let tmp5: NonNullable<string | null>;
